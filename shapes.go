@@ -1,17 +1,17 @@
 package lin3dmath
 
 type Circle struct {
-	Pos Vector2f
+	Pos    Vector2f
 	Radius float32
 }
 
-func MakeCircle(x,y,radius float32) Circle {
-	return Circle{ Vector2f{x,y}, radius}
+func MakeCircle(x, y, radius float32) Circle {
+	return Circle{Vector2f{x, y}, radius}
 }
 
 type Rect struct {
-	Pos Vector2f
-	Width float32
+	Pos    Vector2f
+	Width  float32
 	Height float32
 }
 
@@ -45,21 +45,21 @@ func (self *Rect) GetP2() Vector2f {
 }
 
 func (self *Rect) GetP3() Vector2f {
-	return Vector2f{self.Pos.X + self.Width, self.Pos.Y+self.Height}
+	return Vector2f{self.Pos.X + self.Width, self.Pos.Y + self.Height}
 }
 
 func (self *Rect) GetP4() Vector2f {
-	return Vector2f{self.Pos.X, self.Pos.Y+self.Height}
+	return Vector2f{self.Pos.X, self.Pos.Y + self.Height}
 }
 
-func (self *Rect) IsInside(x,y float32) bool {
+func (self *Rect) IsInside(x, y float32) bool {
 	return x >= self.Pos.X && x <= (self.Pos.X+self.Width) &&
 		y >= self.Pos.Y && y <= (self.Pos.Y+self.Height)
 }
 
 type Rect2i struct {
-	Pos Vector2i
-	Width int
+	Pos    Vector2i
+	Width  int
 	Height int
 }
 
@@ -93,14 +93,14 @@ func (self *Rect2i) GetP2() Vector2i {
 }
 
 func (self *Rect2i) GetP3() Vector2i {
-	return Vector2i{self.Pos.X + self.Width, self.Pos.Y+self.Height}
+	return Vector2i{self.Pos.X + self.Width, self.Pos.Y + self.Height}
 }
 
 func (self *Rect2i) GetP4() Vector2i {
-	return Vector2i{self.Pos.X, self.Pos.Y+self.Height}
+	return Vector2i{self.Pos.X, self.Pos.Y + self.Height}
 }
 
-func (self *Rect2i) IsInside(x,y int) bool {
+func (self *Rect2i) IsInside(x, y int) bool {
 	return x >= self.Pos.X && x <= (self.Pos.X+self.Width) &&
 		y >= self.Pos.Y && y <= (self.Pos.Y+self.Height)
 }

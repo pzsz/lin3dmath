@@ -16,7 +16,7 @@ func (s IntRange) Overlap(other IntRange) bool {
 		return true
 	}
 
-	if other.End >  s.Start && other.Start <= s.Start {
+	if other.End > s.Start && other.Start <= s.Start {
 		return true
 	}
 	return false
@@ -32,7 +32,6 @@ func (s IntRange) OverlapAndStick(other IntRange) bool {
 	}
 	return false
 }
-
 
 func (s IntRange) InsideInt(pos int) bool {
 	return s.Start <= pos && pos < s.End
@@ -74,7 +73,6 @@ func (s IntRange) And(other IntRange) (result IntRange) {
 	return
 }
 
-
 func (s *IntRange) Less(other IntRange) bool {
 	return s.End < other.Start
 }
@@ -91,16 +89,15 @@ func (s *IntRanges) Get() []IntRange {
 	return s.ranges
 }
 
-
 func (s *IntRanges) GetUnion(rng *IntRanges) (result []IntRange) {
 	for _, r1 := range s.ranges {
-		for _, r2 := range rng.ranges {		
+		for _, r2 := range rng.ranges {
 			if r1.Overlap(r2) {
 				result = append(result, r1.And(r2))
 			}
 		}
 	}
-	return 
+	return
 }
 
 /*
@@ -118,13 +115,13 @@ func (s *IntRanges) GetUnion(rng *IntRanges) (result []IntRange) {
 		if s.ranges[left_pos].Overlap(rng.ranges[right_pos]) {
 			result = append(result, s.ranges[left_pos].And(rng.ranges[right_pos]))
 		} 
-		
+
 		if grow_left {
 			left_pos += 1
 		} else {
 			right_pos += 1
 		}
-		
+
 	}	
 }*/
 
@@ -151,15 +148,15 @@ func (s *IntRanges) GetInvert(min, max int) (result []IntRange) {
 	if !added_last_step && prev_end < max {
 		result = append(result, IntRange{prev_end, max})
 	}
-	
+
 	return result
 }
 
-func (s *IntRanges) AddInt(start, end int) {	
+func (s *IntRanges) AddInt(start, end int) {
 	s.Add(IntRange{start, end})
 }
 
-func (s *IntRanges) Add(r IntRange) {	
+func (s *IntRanges) Add(r IntRange) {
 	for i, rang := range s.ranges {
 		if r.Less(rang) {
 			s.ranges = append(s.ranges, r)
@@ -169,7 +166,7 @@ func (s *IntRanges) Add(r IntRange) {
 		}
 		if r.OverlapAndStick(rang) {
 			s.ranges[i] = rang.Add(r)
-			return				
+			return
 		}
 	}
 
