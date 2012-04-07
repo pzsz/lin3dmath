@@ -12,15 +12,31 @@ func (s *Vector3i) AddIP(o Vector3i) {
 	s.X += o.X; s.Y += o.Y; s.Z += o.Z;
 }
 
+func (s Vector3i) Sub(o Vector3i) Vector3i {
+	return Vector3i{s.X - o.X, s.Y - o.Y, s.Z - o.Z}
+}
+
+func (s *Vector3i) SubIP(o Vector3i) {
+	s.X -= o.X; s.Y -= o.Y; s.Z -= o.Z;
+}
+
 func (s Vector3i) MulI(o int) Vector3i {
 	return Vector3i{s.X*o, s.Y*o, s.Z*o}
+}
+
+func (s Vector3i) DivI(o int) Vector3i {
+	return Vector3i{s.X/o, s.Y/o, s.Z/o}
 }
 
 func (s Vector3i) Mul3I(o Vector3i) Vector3i {
 	return Vector3i{s.X*o.X, s.Y*o.Y, s.Z*o.Z}
 }
 
-func (s Vector3i) ToF() Vector3f {
+func (s Vector3i) Div3I(o Vector3i) Vector3i {
+	return Vector3i{s.X/o.X, s.Y/o.Y, s.Z/o.Z}
+}
+
+func (s Vector3i) To3F() Vector3f {
 	return Vector3f{float32(s.X),
 		float32(s.Y),
 		float32(s.Z)}

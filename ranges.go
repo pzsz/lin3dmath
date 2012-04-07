@@ -58,6 +58,13 @@ func (s IntRange) Add(other IntRange) (result IntRange) {
 }
 
 // Ranges have to overlap. this is AND operation on sets
+// s=0-10  other=13-20
+// 13  10
+// s=13-20 other=0-10
+// 13  10
+// s=10-20 other=0-10
+// 13  10
+
 func (s IntRange) And(other IntRange) (result IntRange) {
 	if s.Start >= other.Start {
 		result.Start = s.Start

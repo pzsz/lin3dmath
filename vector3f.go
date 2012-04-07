@@ -47,6 +47,10 @@ func (s Vector3f) Add(o Vector3f) Vector3f {
 	return Vector3f{s.X + o.X, s.Y + o.Y, s.Z + o.Z}
 }
 
+func (s *Vector3f) AddIP(o Vector3f) {
+	s.X += o.X; s.Y += o.Y; s.Z += o.Z
+}
+
 func (s Vector3f) Sub(o Vector3f) Vector3f {
 	return Vector3f{s.X - o.X, s.Y - o.Y, s.Z - o.Z}
 }
