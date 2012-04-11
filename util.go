@@ -118,3 +118,11 @@ func AlignToCell(val float32, dir Direction) int {
 func Abs32(v float32) float32 {
 	return float32(math.Abs(float64(v)))
 }
+
+func FastFloor64(v float64) float64 {
+	i := float64(int(v))
+	if v < i {
+		return i-1
+	}
+	return i
+}

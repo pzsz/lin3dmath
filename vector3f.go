@@ -43,6 +43,13 @@ func (s Vector3f) To3I() Vector3i {
 		int(s.Z)}
 }
 
+func (s *Vector3f) ZeroIP() {
+	s.X = 0
+	s.Y = 0
+	s.Z = 0
+}
+
+
 func (s Vector3f) Add(o Vector3f) Vector3f {
 	return Vector3f{s.X + o.X, s.Y + o.Y, s.Z + o.Z}
 }
