@@ -1,6 +1,7 @@
 package lin3dmath_test
 
-import (
-	. "github.com/pzsz/lin3dmath"
-	"testing"
-)
+//import (
+//	"testing"
+
+//	_ "github.com/pzsz/lin3dmath"
+//)

@@ -75,6 +75,11 @@ func ValidateCoordRangeI(x, y, w, h int) bool {
 	return x >= 0 && y >= 0 && x < w && y < h
 }
 
+// require Go 1.10
+func RoundUnit(x, unit float32) float32 {
+	return float32(math.Round(float64(x/unit))) * unit
+}
+
 func RoundF(f float32) float32 {
 	fi := float32(int(f))
 	dif := f - fi
@@ -141,7 +146,7 @@ func Acos32(v float32) float32 {
 func FastFloor64(v float64) float64 {
 	i := float64(int(v))
 	if v < i {
-		return i-1
+		return i - 1
 	}
 	return i
 }
@@ -149,7 +154,7 @@ func FastFloor64(v float64) float64 {
 func FastFloor32(v float32) float32 {
 	i := float32(int(v))
 	if v < i {
-		return i-1
+		return i - 1
 	}
 	return i
 }
